@@ -20,3 +20,12 @@
 | GND      | GND               |
 | SCL (D0) | D22               |
 | SDA (D1) | D21               |
+
+---
+# ESP8266 D1 Mini Motor Control Wiring
+
+| ESP8266             | Motor Pin       |
+|---------------------|-----------------|
+| GPIO5 (D1)          | IN (Control)    | 
+| 3.3V or 5V          | VCC             |
+| GND                 | GND             | 

@@ -1,5 +1,5 @@
 ## pir sensor pinout 
-<img width="1000" height="1000" alt="Image" src="https://github.com/user-attachments/assets/a86779a7-fd3f-4f25-b7e7-55a97493e1fb" />
+<img width="500" height="500" alt="Image" src="https://github.com/user-attachments/assets/a86779a7-fd3f-4f25-b7e7-55a97493e1fb" />
 
 
 ## 1.3'' spi oled display pinout

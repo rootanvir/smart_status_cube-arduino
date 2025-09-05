@@ -24,8 +24,8 @@
 ---
 # ESP8266 D1 Mini Motor Control Wiring
 
-| ESP8266             | Motor Pin       |
+| ESP32               | Motor Pin       |
 |---------------------|-----------------|
-| GPIO5 (D1)          | IN (Control)    | 
-| 3.3V or 5V          | VCC             |
+| D5                  | IN (Control)    | 
+| 3.3V                | VCC             |
 | GND                 | GND             | 

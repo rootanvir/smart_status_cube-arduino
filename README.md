@@ -1,9 +1,17 @@
 ## pir sensor pinout 
 <img width="500" height="500" alt="Image" src="https://github.com/user-attachments/assets/a86779a7-fd3f-4f25-b7e7-55a97493e1fb" />
+## pir to esp8266
 
+| OLED Pin | ESP8266 (NodeMCU) |
+| -------- | ----------------- |
+| VCC      | 3.3V              |
+| GND      | GND               |
+| OUT      | D2                |
+
+
+---
 
 ## 1.3'' spi oled display pinout
-
 | OLED Pin | ESP8266 (NodeMCU) |
 | -------- | ----------------- |
 | VCC      | 3.3V              |

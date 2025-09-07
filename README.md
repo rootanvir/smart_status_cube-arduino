@@ -35,10 +35,23 @@
 | SDA (D1) | D21               |
 
 ---
-# ESP8266 D1 Mini Motor Control Wiring
+## ESP8266 D1 Mini Motor Control Wiring
 
 | ESP32               | Motor Pin       |
 |---------------------|-----------------|
 | D5                  | IN (Control)    | 
 | 3.3V                | VCC             |
 | GND                 | GND             | 
+
+---
+## RFID to ESP8266
+| RC522 Pin | ESP8266 Pin |
+| --------- | ----------- |
+| SDA (CS)  | D1          |
+| SCK       | D5          |
+| MOSI      | D7          |
+| MISO      | D6          |
+| RST       | D0          |
+| 3.3V      | 3.3V        |
+| GND       | GND         |
+

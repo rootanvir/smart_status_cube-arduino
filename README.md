@@ -1,3 +1,12 @@
+## Component used
+- [ESP8266](https://store.roboticsbd.com/development-boards/694-esp8266-ch340-nodemcu-wifi-module-lua-v3-robotics-bangladesh.html)
+- [PIR sensor](https://store.roboticsbd.com/sensors/2339-am312-mini-pir-motion-sensor-robotics-bangladesh.html)
+- [DC vibration motor](https://store.roboticsbd.com/vibration-sensor-robotics-bangladesh/1932-dc-motor-mobile-phone-vibrator-vibration-motor-alarm-module-black-robotics-bangladesh.html)
+- [1.3' OLED display](https://store.roboticsbd.com/display/2050-13-inch-spi-oled-display-module-7pin-blue-robotics-bangladesh.html)
+- [GY-87 10DOF](https://store.roboticsbd.com/sensors/382-gy-87-10dof-mpu6050-hmc5883l-bmp180-sensor-module-robotics-bangladesh.html)
+- [RC522 RFID Module](https://store.roboticsbd.com/arduino-shield/313-rc522-rfid-card-reader-module-kit-android-nfc-supported-robotics-bangladesh.html)
+
+
 ## pir sensor pinout 
 <img width="500" height="500" alt="Image" src="https://github.com/user-attachments/assets/a86779a7-fd3f-4f25-b7e7-55a97493e1fb" />
 
@@ -27,7 +36,7 @@
 ---
 ## MPU6050 sensor
 
-| OLED Pin | ESP32   (NodeMCU) |
+| MPU6050  | ESP32   (NodeMCU) |
 | -------- | ----------------- |
 | VCC      | 3.3V              |
 | GND      | GND               |

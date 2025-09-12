@@ -2,9 +2,21 @@
 #include <espnow.h>
 #include <U8g2lib.h>
 #include <SPI.h>
+#include <MFRC522.h>
 
+// OLED Display
 U8G2_SH1106_128X64_NONAME_F_4W_HW_SPI u8g2(U8G2_R0, D8, D3, D4);
 
+// RFID RC522 Pins
+#define SS_PIN D1
+#define RST_PIN D0
+MFRC522 rfid(SS_PIN, RST_PIN);
+
+// PIR Pin
+#define PIR_PIN D2
+bool pirState = false;
+
+// ESP-NOW data struct
 typedef struct struct_message {
   float ax;
   float ay;
@@ -14,9 +26,10 @@ typedef struct struct_message {
 
 struct_message accelData;
 
-#define PIR_PIN D2
-bool pirState = false;
+// Track display mode: false = normal, true = Gone
+bool goneMode = false;
 
+// ESP-NOW callback
 void OnDataRecv(uint8_t *mac, uint8_t *incomingData, uint8_t len) {
   memcpy(&accelData, incomingData, sizeof(accelData));
 }
@@ -31,32 +44,28 @@ void setup() {
 
   pinMode(PIR_PIN, INPUT);
   u8g2.begin();
+
+  // RFID Init
+  SPI.begin();
+  rfid.PCD_Init();
+  Serial.println("Place your RFID tag near the reader...");
 }
 
 void loop() {
-  pirState = digitalRead(PIR_PIN);
+  // Check RFID scan
+  if (rfid.PICC_IsNewCardPresent() && rfid.PICC_ReadCardSerial()) {
+    goneMode = !goneMode; // toggle mode
+    rfid.PICC_HaltA();    // halt the card
+  }
 
   u8g2.clearBuffer();
-  u8g2.setFont(u8g2_font_ncenB10_tr);
+  u8g2.setFont(u8g2_font_ncenB14_tr); // font for direction
 
-  char buffer[25];
-  snprintf(buffer, sizeof(buffer), "X: %.2f", accelData.ax);
-  u8g2.drawStr(0, 15, buffer);
-
-  snprintf(buffer, sizeof(buffer), "Y: %.2f", accelData.ay);
-  u8g2.drawStr(0, 30, buffer);
-
-  snprintf(buffer, sizeof(buffer), "Z: %.2f", accelData.az);
-  u8g2.drawStr(0, 45, buffer);
-
-  snprintf(buffer, sizeof(buffer), "Dir: %s", accelData.direction);
-  u8g2.drawStr(0, 60, buffer);
-
-  // PIR motion status
-  if (pirState) {
-    u8g2.drawStr(70, 15, "yes");
+  if (goneMode) {
+    u8g2.drawStr(0, 40, "Gone"); // permanently show Gone
   } else {
-    u8g2.drawStr(70, 15, "no");
+    // Normal display: show direction from sender
+    u8g2.drawStr(0, 40, accelData.direction);
   }
 
   u8g2.sendBuffer();

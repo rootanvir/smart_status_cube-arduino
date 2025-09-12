@@ -36,12 +36,14 @@
 ---
 ## MPU6050 sensor
 
-| MPU6050  | ESP32   (NodeMCU) |
-| -------- | ----------------- |
-| VCC      | 3.3V              |
-| GND      | GND               |
-| SCL (D0) | D22               |
-| SDA (D1) | D21               |
+
+| MPU6050 | ESP8266        |
+|---------|----------------|
+| VCC     | 3.3V           |
+| GND     | GND            |
+| SCL     | D1 (GPIO5)     |
+| SDA     | D2 (GPIO4)     |
+
 
 ---
 ## ESP8266 D1 Mini Motor Control Wiring

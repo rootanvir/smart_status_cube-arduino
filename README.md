@@ -23,7 +23,7 @@
 
 
 ## MAC Address (mine)
-- EPS with gy - 34:5F:45:58:AB:62
+- EPS with MPU6050 - 34:5F:45:58:AB:62
 - ESP with display - 34:5F:45:55:E4:34
 
 ## Component used

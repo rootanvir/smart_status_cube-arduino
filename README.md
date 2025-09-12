@@ -1,3 +1,7 @@
+## MAC 
+- EPS with gy - 34:5F:45:58:AB:62
+- ESP with display - 34:5F:45:55:E4:34
+
 ## Component used
 - [ESP8266](https://store.roboticsbd.com/development-boards/694-esp8266-ch340-nodemcu-wifi-module-lua-v3-robotics-bangladesh.html)
 - [PIR sensor](https://store.roboticsbd.com/sensors/2339-am312-mini-pir-motion-sensor-robotics-bangladesh.html)

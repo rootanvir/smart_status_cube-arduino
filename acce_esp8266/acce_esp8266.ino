@@ -29,6 +29,11 @@ void OnDataSent(uint8_t *mac_addr, uint8_t sendStatus) {
 
 void setup() {
   Serial.begin(115200);
+
+  WiFi.mode(WIFI_STA);
+  Serial.println("Local MAC Address: ");
+  Serial.println(WiFi.macAddress());
+  
   Wire.begin();
 
   // Initialize MPU6050

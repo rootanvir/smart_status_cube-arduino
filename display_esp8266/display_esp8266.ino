@@ -29,6 +29,11 @@ struct_message accelData;
 // Track display mode: false = normal, true = Gone
 bool goneMode = false;
 
+// PIR motion display tracking
+bool displayOn = false;
+unsigned long displayStartTime = 0;
+const unsigned long displayDuration = 5000; // 5 seconds
+
 // ESP-NOW callback
 void OnDataRecv(uint8_t *mac, uint8_t *incomingData, uint8_t len) {
   memcpy(&accelData, incomingData, sizeof(accelData));
@@ -58,14 +63,28 @@ void loop() {
     rfid.PICC_HaltA();    // halt the card
   }
 
-  u8g2.clearBuffer();
-  u8g2.setFont(u8g2_font_ncenB14_tr); // font for direction
+  // Check PIR motion
+  pirState = digitalRead(PIR_PIN);
+  if (pirState) {
+    displayOn = true;
+    displayStartTime = millis();
+  }
 
-  if (goneMode) {
-    u8g2.drawStr(0, 40, "Gone"); // permanently show Gone
-  } else {
-    // Normal display: show direction from sender
-    u8g2.drawStr(0, 40, accelData.direction);
+  // Clear display buffer
+  u8g2.clearBuffer();
+
+  // Show display for 5 seconds after PIR triggers
+  if (displayOn) {
+    u8g2.setFont(u8g2_font_ncenB14_tr); // font for direction
+    if (goneMode) {
+      u8g2.drawStr(0, 40, "Gone");
+    } else {
+      u8g2.drawStr(0, 40, accelData.direction);
+    }
+
+    if (millis() - displayStartTime > displayDuration) {
+      displayOn = false; // turn display off
+    }
   }
 
   u8g2.sendBuffer();

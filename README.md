@@ -1,3 +1,27 @@
+## Code
+- [esp8266 with display,rfid,pir](display_esp8266/display_esp8266.ino)
+- [esp8266 with  MPU6050](acce_esp8266/acce_esp8266.ino)
+
+
+
+## Libraries Required
+
+1. **ESP8266WiFi.h**  
+   - Provides Wi-Fi functionality for ESP8266 in Station/Access Point mode.
+
+2. **espnow.h**  
+   - Enables ESP-NOW communication protocol for direct peer-to-peer communication.
+
+3. **U8g2lib.h**  
+   - Used to control the SH1106 OLED display.
+
+4. **SPI.h**  
+   - Provides SPI communication required by the RFID module.
+
+5. **MFRC522.h**  
+   - Used to interface with the RC522 RFID reader.
+
+
 ## MAC Address (mine)
 - EPS with gy - 34:5F:45:58:AB:62
 - ESP with display - 34:5F:45:55:E4:34
